@@ -1,4 +1,4 @@
-#Treasure_Island
+Treasure_Island
 
 print(r'''
 *******************************************************************************
@@ -54,7 +54,3 @@ else:
     print("Not quite. You fall down some trap doors!")
 
 print("Thanks for playing!")
-
-
-
-
