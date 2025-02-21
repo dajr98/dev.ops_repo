@@ -1,7 +1,8 @@
 import streamlit as st
+import random
 
-st.title("Welcome to Treasure Island")
-st.write('''
+# Display the ASCII art title (Optional)
+st.markdown(r'''
 *******************************************************************************
           |                   |                  |                     |
  _________|________________.=""_;=.______________|_____________________|_______
@@ -23,27 +24,27 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/_____ /
 *******************************************************************************
 ''')
+
+# Display the game title
+st.title("Welcome to Treasure Island")
 st.write("Your mission is to find the hidden treasure.")
 
-choice1 = st.radio('You\'ve come to a crossroad with two choices. Which way would you like to go?',
-                  ('left', 'right'))
+# Let the user select the first choice (left or right)
+choice1 = st.radio("You come to a crossroad. Which way would you like to go?", ("left", "right"))
 
 if choice1 == "left":
-    choice2 = st.radio('You\'ve come to a lake. Do you want to swim across or wait for a ferryman?',
-                       ('swim', 'wait'))
+    choice2 = st.radio("You come to a lake. Type 'swim' to swim across, or 'wait' to wait for the ferryman.", ("swim", "wait"))
 
     if choice2 == "wait":
-        choice3 = st.radio('A ferryman stops by after a while. Will you board his boat?', ('yes', 'no'))
+        choice3 = st.radio("A ferryman stops by. Will you board his boat?", ("yes", "no"))
         if choice3 == "yes":
-            choice4 = st.radio("You arrive at the island unharmed. You stumble across 3 doors. "
-                               "One red, one yellow, and one blue. Which door would you like to choose?",
-                               ('red', 'yellow', 'blue'))
+            choice4 = st.radio("You arrive at the island. There are 3 doors: red, yellow, and blue. Which door would you like to choose?", ("red", "yellow", "blue"))
             if choice4 == "red":
                 st.write("Wrong door! A horde of Zombies attack and consume you... Sorry...")
             elif choice4 == "yellow":
                 st.write("Wrong door! A bunch of Cobras attack and poison you with their venom. Game Over.")
             elif choice4 == "blue":
-                st.write("Nice choice. You open the door and discover a room full of gold. You hit the jackpot!")
+                st.write("Nice choice! You open the door and discover a room full of gold. You hit the jackpot!")
             else:
                 st.write("Not quite. You fell into a magical bottomless pit. Game Over.")
         else:
@@ -52,7 +53,6 @@ if choice1 == "left":
         st.write("You get devoured by sharks. Sorry...")
     else:
         st.write("Not quite. You fall down some trap doors!")
-
 else:
     st.write("Not quite. You fall down some trap doors!")
 
